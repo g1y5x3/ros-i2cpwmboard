@@ -280,8 +280,7 @@ int _active_board = 0;                      // used to determine if I2C SLAVE ch
 int _controller_io_handle;                  // linux file handle for I2C
 int _controller_io_device;                  // linux file for I2C
 
-int _pwm_frequency = 50;                    // frequency determines the size of a pulse width; higher numbers make RC servos buzz
-
+int _pwm_frequency = 100;                    // frequency determines the size of a pulse width; higher numbers make RC servos buzz
 
 /// @endcond PRIVATE_NO_PUBLIC DOC
 
@@ -1445,7 +1444,7 @@ static int _load_params (void)
 	_set_active_board (1);
 
 	int pwm;
-	nhp.param ("pwm_frequency", pwm, 50);
+	nhp.param ("pwm_frequency", pwm, 100);
 	_set_pwm_frequency (pwm);
 
 	
@@ -1580,7 +1579,7 @@ int main (int argc, char **argv)
 	// globals
 	_controller_io_device = 1;	// default I2C device on RPi2 and RPi3 = "/dev/i2c-1" Orange Pi Lite = "/dev/i2c-0"
 	_controller_io_handle = 0;
-	_pwm_frequency = 50;		// set the initial pulse frequency to 50 Hz which is standard for RC servos
+	_pwm_frequency = 100;		// set the initial pulse frequency to 50 Hz which is standard for RC servos
 
 	
 
